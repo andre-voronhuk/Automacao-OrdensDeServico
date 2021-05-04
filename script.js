@@ -5,12 +5,15 @@ function redirect() {
 
 function area(param) {
     if (param == "engenharia") {
-        document.getElementById("form:areaSuporte").firstElementChild.click()
-        document.getElementById("form:areaSuporte").lastElementChild.click()
+        // é necessario clicar no botao 'tecnologia da informação' e no botao 'engenharia clinica para ter certeza que o botao selecionado
+        // é realmente o botao 'engenharia clinica'
+        document.getElementById("form:areaSuporte").firstElementChild.click() // TI
+        document.getElementById("form:areaSuporte").lastElementChild.click() //Eng. Clinica
 
     } else {
-        document.getElementById("form:areaSuporte").lastElementChild.click()
-        document.getElementById("form:areaSuporte").firstElementChild.click()
+        // o comentario da linha 8 serve ao contrario para esse escopo
+        document.getElementById("form:areaSuporte").lastElementChild.click() //Eng. Clinica
+        document.getElementById("form:areaSuporte").firstElementChild.click() // TI
     }
     console.log("AREA OK")
 
