@@ -5,15 +5,12 @@ function redirect() {
 
 function area(param) {
     if (param == "engenharia") {
-        // é necessario clicar no botao 'tecnologia da informação' e no botao 'engenharia clinica para ter certeza que o botao selecionado
-        // é realmente o botao 'engenharia clinica'
-        document.getElementById("form:areaSuporte").firstElementChild.click() // TI
-        document.getElementById("form:areaSuporte").lastElementChild.click() //Eng. Clinica
+        document.getElementById("form:areaSuporte").firstElementChild.click()
+        document.getElementById("form:areaSuporte").lastElementChild.click()
 
     } else {
-        // o comentario da linha 8 serve ao contrario para esse escopo
-        document.getElementById("form:areaSuporte").lastElementChild.click() //Eng. Clinica
-        document.getElementById("form:areaSuporte").firstElementChild.click() // TI
+        document.getElementById("form:areaSuporte").lastElementChild.click()
+        document.getElementById("form:areaSuporte").firstElementChild.click()
     }
     console.log("AREA OK")
 
@@ -217,6 +214,56 @@ function servidores() {
 
 }
 
+function ar() {
+    //String sem nada significam: Tecnologia da Informacao
+    Area = "" //null=Tecnologia da Informacao
+    Setor = "" //null=Tecnologia da Informacao/eng
+    Tipo = "" //null= Requisição/incidente
+    Assunto = "Verificação diária da usina de Ar Comprimido" // NAO PODE SER NULO
+    Servico = "parecer" //null=Armazenamento de Dados
+    abrirOrdem(
+        Area,
+        Setor,
+        Tipo,
+        Assunto,
+        Servico
+    )
+
+}
+
+function o2() {
+    //String sem nada significam: Tecnologia da Informacao
+    Area = "" //null=Tecnologia da Informacao
+    Setor = "" //null=Tecnologia da Informacao/eng
+    Tipo = "" //null= Requisição/incidente
+    Assunto = "Verificação diária do armazenamento de oxigênio " // NAO PODE SER NULO
+    Servico = "parecer" //null=Armazenamento de Dados
+    abrirOrdem(
+        Area,
+        Setor,
+        Tipo,
+        Assunto,
+        Servico
+    )
+
+}
+
+function o2Backup() {
+    //String sem nada significam: Tecnologia da Informacao
+    Area = "" //null=Tecnologia da Informacao
+    Setor = "" //null=Tecnologia da Informacao/eng
+    Tipo = "" //null= Requisição/incidente
+    Assunto = "Verificação diária do backup de oxigênio" // NAO PODE SER NULO
+    Servico = "parecer" //null=Armazenamento de Dados
+    abrirOrdem(
+        Area,
+        Setor,
+        Tipo,
+        Assunto,
+        Servico
+    )
+
+}
 
 
 function abrirTudo() {
@@ -248,6 +295,15 @@ function abrirTudo() {
                                                         servidores()
                                                         setTimeout(function() {
                                                             servidores()
+                                                            setTimeout(function() {
+                                                                o2()
+                                                                setTimeout(function() {
+                                                                    o2Backup()
+                                                                    setTimeout(function() {
+                                                                        ar()
+                                                                    }, 6000);
+                                                                }, 6000);
+                                                            }, 6000);
                                                         }, 6000);
                                                     }, 6000);
                                                 }, 6000);
